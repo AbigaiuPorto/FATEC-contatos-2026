@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <script src="./app.js" defer type="module"></script>
+
     <title>Contatos</title>
 </head>
 <body>
-    
+
+    <header>
+        <h1>Agenda de Contatos</h1>
+    </header>
+
+    <main>
+
+        <form id="form-contato">
+
+            <input type="text" id="nome" placeholder="Nome" required>
+            <input type="text" id="celular" placeholder="Celular" required>
+            <input type="url" id="foto" placeholder="URL da foto">
+            <input type="email" id="email" placeholder="Email">
+            <input type="text" id="endereco" placeholder="Endereço">
+            <input type="text" id="cidade" placeholder="Cidade">
+         <button type="submit"> Salvar Contato </button>
+        </form>
+
+        <section id="lista-contatos"> </section>
+
+    </main>
+
 </body>
 </html>
