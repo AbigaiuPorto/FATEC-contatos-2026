@@ -21,6 +21,28 @@ const cidade = document.getElementById('cidade')
 // variável para guardar id do contato editado
 let id = null
 
+// variável da imagem
+let imagem = ""
+
+// preview da imagem
+function preview ({target}) {
+
+    // mostra imagem
+    document.getElementById('preview-image')
+            .src = URL.createObjectURL(target.files[0])
+
+    // salva imagem
+    const leitor = new FileReader()
+
+    leitor.onload = () => imagem = leitor.result
+
+    leitor.readAsDataURL(target.files[0])
+}
+
+// evento da imagem
+document.getElementById('foto')
+        .addEventListener('change', preview)
+
 // função para carregar contatos da API
 async function carregarContatos(){
 
@@ -47,25 +69,31 @@ function criarCard(contato){
     if(!contato.foto){
 
         const img = document.createElement('img')
-        img.src = "https://img.freepik.com/psd-gratuitas/ilustracao-3d-de-avatar-ou-perfil-humano_23-2150671122.jpg"
+        img.src = "./img/upload-icon.svg"
         card.appendChild(img)
-    } else{
+
+    } else {
+
         const img = document.createElement('img')
         img.src = contato.foto
         card.appendChild(img)
     }
 
-
     const listNome = document.createElement('h2')
     listNome.textContent = contato.nome
+
     const listEmail = document.createElement('p')
     listEmail.textContent = contato.email
+
     const listCelular = document.createElement('p')
     listCelular.textContent = contato.celular
+
     const listCidade = document.createElement('p')
     listCidade.textContent = contato.cidade
+
     const editar = document.createElement('button')
     editar.textContent = 'Editar'
+
     const excluir = document.createElement('button')
     excluir.textContent = 'Excluir'
 
@@ -78,12 +106,19 @@ function criarCard(contato){
         // coloca dados no formulário
         nome.value = contato.nome
         celular.value = contato.celular
-        foto.value = contato.foto
         email.value = contato.email
         endereco.value = contato.endereco
         cidade.value = contato.cidade
+
+        // guarda imagem
+        imagem = contato.foto
+
+        // mostra preview
+        document.getElementById('preview-image')
+                .src = contato.foto
     }
 
+    // evento excluir
     excluir.onclick = async () => {
 
         await deletarContato(contato.id)
@@ -106,12 +141,14 @@ function criarCard(contato){
 
 // evento de envio do formulário
 form.onsubmit = async (event) => {
+
     event.preventDefault()
+
     const contato = {
 
         nome: nome.value,
         celular: celular.value,
-        foto: foto.value,
+        foto: imagem,
         email: email.value,
         endereco: endereco.value,
         cidade: cidade.value
@@ -119,17 +156,29 @@ form.onsubmit = async (event) => {
 
     // verifica se está editando
     if(id){
+
         await atualizarContato(id, contato)
 
         id = null
+
         carregarContatos()
 
     } else {
 
         const novoContato = await criarContato(contato)
+
         criarCard(novoContato)
     }
+
+    // limpa formulário
     form.reset()
+
+    // limpa preview
+    document.getElementById('preview-image')
+            .src = "./img/upload-icon.svg"
+
+    // limpa imagem
+    imagem = ""
 }
 
 // inicia aplicação carregando contatos

@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="./app.js" defer type="module"></script>
-
-    <title>Contatos</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<script src="./app.js" defer type="module"></script>
+<title>Contatos</title>
 </head>
+
 <body>
 
-    <header>
-        <h1>Cadastro de Contatos</h1>
-    </header>
+<header>
+<h1>Cadastro de Contatos</h1>
+</header>
 
-    <main>
+<main>
 
-        <form id="form-contato">
+<form id="form-contato">
 
-            <input type="text" id="nome" placeholder="Nome" required>
-            <input type="text" id="celular" placeholder="Celular" required>
-            <input type="url" id="foto" placeholder="URL da foto">
-            <input type="email" id="email" placeholder="Email">
-            <input type="text" id="endereco" placeholder="Endereço">
-            <input type="text" id="cidade" placeholder="Cidade">
-         <button type="submit"> Salvar Contato </button>
-        </form>
-        <section>
-                 <h2 class="list">Lista de Contatos</h2>
-        </section>
-        <div id="lista-contatos"> 
-       
-        </div>
+<input type="text" id="nome" placeholder="Nome" required>
 
-    </main>
+<input type="text" id="celular" placeholder="Celular" required>
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="text" id="endereco" placeholder="Endereço">
+
+<input type="text" id="cidade" placeholder="Cidade">
+
+<div class="preview-container">
+
+<input type="file" id="foto" class="preview-input" accept="image/*">
+
+<label for="foto" class="preview-label">
+<span class="preview-text">Clique para carregar imagem</span></label>
+
+<img id="preview-image" class="preview-image" src="./img/upload-icon.svg" alt="Preview da imagem">
+
+
+</div>
+
+<button type="submit">Salvar Contato</button>
+
+</form>
+
+<section>
+<h2 class="list">Lista de Contatos</h2>
+</section>
+
+<div id="lista-contatos"></div>
+
+</main>
 
 </body>
 </html>

@@ -1,143 +1,167 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
+font-family: Arial, Helvetica, sans-serif;
+background: #f4f4f4;
+min-height: 100vh;
+padding: 20px;
 }
 
-/* título */
 header{
-    text-align: center;
-    margin-bottom: 20px;
+text-align: center;
+margin-bottom: 20px;
 }
 
 h1{
-    color: #ffffff;
-    font-size: 28px;
-    background-color: #004ecc;
-    border-radius: 10px;
-    padding: 20px;
+color: #ffffff;
+font-size: 32px;
+background-color: #003b9e;
+border-radius: 16px;
+padding: 20px;
+box-shadow: 0 4px 10px #00000020;
 }
 
 .list{
-    color: #ffffff;
-    font-size: 28px;
-    padding: 10px;
-    text-align: center;
-
-     margin: 20px auto;
-     background-color: #004ecc;
-     width: 30%;
-     border-radius: 15px;
+color: #ffffff;
+font-size: 26px;
+padding: 12px;
+text-align: center;
+margin: 30px auto;
+background-color: #003b9e;
+width: 300px;
+border-radius: 16px;
+box-shadow: 0 4px 10px #00000020;
 }
 
-/* formulário */
 form{
-
-    width: 300px;
-
-    margin: auto;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 10px;
-
-    background-color: white;
-
-    padding: 15px;
-
-    border-radius: 10px;
-
-    box-shadow: 0 0 10px #00000015;
+width: 350px;
+margin: auto;
+display: flex;
+flex-direction: column;
+gap: 14px;
+background-color: white;
+padding: 25px;
+border-radius: 20px;
+box-shadow: 0 10px 30px #00000020;
 }
 
-/* inputs */
 input{
-
-    padding: 10px;
-
-    border: 1px solid #ccc;
-
-    border-radius: 6px;
-
-    font-size: 14px;
+padding: 12px;
+border: 1px solid #dcdcdc;
+border-radius: 10px;
+font-size: 14px;
+outline: none;
+transition: 0.3s;
 }
 
-/* botões */
+input:focus{
+border-color: #0066ff;
+box-shadow: 0 0 5px #0066ff50;
+}
+
 button{
-
-    padding: 8px;
-
-    border: none;
-
-    border-radius: 6px;
-
-    background-color: #0066ff;
-
-    color: white;
-
-    cursor: pointer;
-
-    font-size: 14px;
+padding: 12px;
+border: none;
+border-radius: 10px;
+background-color: #0066ff;
+color: white;
+cursor: pointer;
+font-size: 15px;
+font-weight: bold;
+transition: 0.3s;
 }
 
 button:hover{
-    background-color: #004ecc;
+background-color: #004ecc;
+transform: scale(1.02);
 }
 
-/* área dos contatos */
 #lista-contatos{
-    margin-top: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
- 
+margin-top: 40px;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
 }
 
-div{
-
-}
-
-/* card */
 .card{
-
-    width: 180px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 12px;
-    box-shadow: 0 0 8px #00000015;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+width: 220px;
+background-color: white;
+border-radius: 18px;
+padding: 15px;
+box-shadow: 0 10px 25px #00000015;
+display: flex;
+flex-direction: column;
+gap: 8px;
+transition: 0.3s;
 }
 
-/* imagem */
+.card:hover{
+transform: translateY(-5px);
+}
+
 .card img{
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
+width: 100%;
+height: 180px;
+object-fit: cover;
+border-radius: 12px;
 }
 
-/* textos */
 .card h2{
-    font-size: 16px;
-    color: #222;
+font-size: 18px;
+color: #222;
 }
 
 .card p{
-    font-size: 13px;
-    color: #555;
+font-size: 14px;
+color: #555;
 }
 
-/* botões card */
 .card button{
-    margin-top: 5px;
+margin-top: 5px;
+}
+
+.preview-container{
+position: relative;
+width: 160px;
+height: 160px;
+margin: auto;
+border-radius: 50%;
+overflow: hidden;
+border: 4px solid #0066ff;
+box-shadow: 0 5px 15px #00000020;
+}
+
+.preview-input{
+display: none;
+}
+
+.preview-label{
+position: absolute;
+width: 100%;
+height: 100%;
+cursor: pointer;
+z-index: 2;
+}
+
+.preview-image{
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.preview-text{
+position: absolute;
+bottom: 0;
+width: 100%;
+text-align: center;
+background-color: rgba(0,0,0,0.5);
+color: white;
+font-size: 12px;
+padding: 6px;
+z-index: 3;
 }
